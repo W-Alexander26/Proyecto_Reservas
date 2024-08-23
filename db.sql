@@ -1,0 +1,2 @@
+CREATE DATABASE Proyecto_MySQL_Reservas
+    DEFAULT CHARACTER SET = 'utf8mb4';
