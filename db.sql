@@ -106,7 +106,3 @@ UPDATE habitacion SET estado = estado_habitacion WHERE habitacion_id = obtener_i
 END//
 DELIMITER ;
 CALL cancelar_reserva(8,"confirmada",2,"reservada");
-
-
-
-
