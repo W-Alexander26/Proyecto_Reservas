@@ -94,3 +94,19 @@ VALUES
 (5,3,'2024-04-10 12:00:00','2024-04-17 12:00:00','Tarjeta',5,'2024-04-06 06:00:00',"cancelado"),
 (6,4,'2024-06-01 12:00:00','2024-06-10 12:00:00','Efectivo',6,'2024-05-25 15:00:00',"confirmada");
 
+#Creacion stored procedure que cancela las reservas.
+DELIMITER//
+
+CREATE PROCEDURE `cancelar_reserva`(cancelar_id_reserva INT,estado_reserva VARCHAR(10),obtener_id_habitacion INT,estado_habitacion VARCHAR(10))
+BEGIN
+SELECT * FROM reserva WHERE id_reserva = cancelar_id_reserva;
+UPDATE reserva set estado = estado_reserva WHERE id_reserva = cancelar_id_reserva;
+SELECT * FROM habitacion WHERE habitacion_id = obtener_id_habitacion;
+UPDATE habitacion SET estado = estado_habitacion WHERE habitacion_id = obtener_id_habitacion;
+END//
+DELIMITER ;
+CALL cancelar_reserva(8,"confirmada",2,"reservada");
+
+
+
+
