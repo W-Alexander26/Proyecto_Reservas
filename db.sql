@@ -111,5 +111,29 @@ BEGIN
 END// 
 
 DELIMITER ;
-CALL agregar_nueva_reserva (1, 3, '2024-08-26 07:00:00','2024-08-28 12:00:00', 'Tarjeta', 1, '2024-08-02 17:00:00', 'confirmada');
+CALL agregar_nueva_reserva (1, 3, '2024-08-30 07:00:00','2024-09-3 12:00:00', 'Tarjeta', 1, '2024-08-26 17:00:00', 'confirmada');
 
+
+CREATE VIEW reservas_del_dia AS
+SELECT  
+    id_cliente,
+    fecha_reserva
+FROM Reserva
+WHERE DATE(fecha_reserva) = CURDATE()
+
+
+SELECT * FROM Hotel WHERE ubicacion LIKE 'Al%';
+
+SELECT * FROM Hotel WHERE nombre_hotel LIKE '%Fiesta%'
+
+SELECT * FROM Reserva
+INNER JOIN Cliente ON `Reserva`.id_cliente = `Cliente`.id_cliente
+WHERE `Cliente`.correo = 'lauralopez@gmail.com' AND MONTH(fecha_reserva) = MONTH(CURDATE()) - 1;
+
+SELECT h.nombre_hotel, COUNT(r.id_reserva) AS total_reservas
+FROM Hotel h
+JOIN Habitacion ha ON h.id_hotel = ha.id_hotel
+JOIN Reserva r ON ha.habitacion_id = r.habitacion_id
+GROUP BY h.nombre_hotel
+ORDER BY total_reservas DESC
+LIMIT 1;
