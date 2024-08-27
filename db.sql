@@ -54,5 +54,23 @@ CREATE TABLE Reserva (
 
 
 
+CREATE VIEW reservas_del_dia AS
+SELECT  
+    id_cliente,
+    fecha_reserva
+FROM Reserva
+WHERE DATE(fecha_reserva) = CURDATE()
 
 
+SELECT * FROM Hotel WHERE ubicacion LIKE 'Al%';
+
+SELECT * FROM Hotel WHERE nombre_hotel LIKE '%Fiesta%'
+
+
+SELECT h.nombre_hotel, COUNT(r.id_reserva) AS total_reservas
+FROM Hotel h
+JOIN Habitacion ha ON h.id_hotel = ha.id_hotel
+JOIN Reserva r ON ha.habitacion_id = r.habitacion_id
+GROUP BY h.nombre_hotel
+ORDER BY total_reservas DESC
+LIMIT 1;
