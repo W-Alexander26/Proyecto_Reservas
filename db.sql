@@ -51,15 +51,4 @@ CREATE TABLE Reserva (
     FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
     Foreign Key (habitacion_id) REFERENCES Habitacion(habitacion_id)
 );
-SELECT * FROM Hotel WHERE ubicacion LIKE 'Al%';
 
-SELECT * FROM Hotel WHERE nombre_hotel LIKE '%Fiesta%'
-
-
-SELECT h.nombre_hotel, COUNT(r.id_reserva) AS total_reservas
-FROM Hotel h
-JOIN Habitacion ha ON h.id_hotel = ha.id_hotel
-JOIN Reserva r ON ha.habitacion_id = r.habitacion_id
-GROUP BY h.nombre_hotel
-ORDER BY total_reservas DESC
-LIMIT 1;

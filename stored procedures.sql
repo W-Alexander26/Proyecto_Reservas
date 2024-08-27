@@ -14,10 +14,10 @@ BEGIN
 END// 
 
 DELIMITER ;
-CALL agregar_nueva_reserva (7,3,'2024-08-26 07:00:00','2024-08-28 12:00:00', 'Tarjeta', 6, '2024-08-02 17:00:00', 'confirmada');
+CALL agregar_nueva_reserva (3, 3, '2024-08-26 07:00:00','2024-08-28 12:00:00', 'Tarjeta', 1, '2024-08-02 17:00:00', 'confirmada');
 
 #Creacion stored procedure que cancela las reservas.
-DELIMITER//
+DELIMITER //
 
 CREATE PROCEDURE `cancelar_reserva`(cancelar_id_reserva INT,estado_reserva VARCHAR(10),obtener_id_habitacion INT,estado_habitacion VARCHAR(10))
 BEGIN
