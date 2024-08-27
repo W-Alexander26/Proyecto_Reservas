@@ -14,7 +14,9 @@ BEGIN
 END// 
 
 DELIMITER ;
-CALL agregar_nueva_reserva (1, 3, '2024-08-26 07:00:00','2024-08-28 12:00:00', 'Tarjeta', 1, '2024-08-02 17:00:00', 'confirmada');
+CALL agregar_nueva_reserva (3, 3, '2024-08-27 07:00:00','2024-08-29 12:00:00', 'Tarjeta', 1, '2024-07-06 17:00:00', 'pendiente');
+
+DROP PROCEDURE agregar_nueva_reserva
 
 #Creacion stored procedure que cancela las reservas.
 DELIMITER//
