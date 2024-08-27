@@ -51,17 +51,6 @@ CREATE TABLE Reserva (
     FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
     Foreign Key (habitacion_id) REFERENCES Habitacion(habitacion_id)
 );
-
-
-
-CREATE VIEW reservas_del_dia AS
-SELECT  
-    id_cliente,
-    fecha_reserva
-FROM Reserva
-WHERE DATE(fecha_reserva) = CURDATE()
-
-
 SELECT * FROM Hotel WHERE ubicacion LIKE 'Al%';
 
 SELECT * FROM Hotel WHERE nombre_hotel LIKE '%Fiesta%'
