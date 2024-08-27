@@ -14,16 +14,14 @@ BEGIN
 END// 
 
 DELIMITER ;
-CALL agregar_nueva_reserva (1, 3, '2024-08-26 07:00:00','2024-08-28 12:00:00', 'Tarjeta', 1, '2024-08-02 17:00:00', 'confirmada');
+CALL agregar_nueva_reserva (7,3,'2024-08-26 07:00:00','2024-08-28 12:00:00', 'Tarjeta', 6, '2024-08-02 17:00:00', 'confirmada');
 
 #Creacion stored procedure que cancela las reservas.
 DELIMITER//
 
 CREATE PROCEDURE `cancelar_reserva`(cancelar_id_reserva INT,estado_reserva VARCHAR(10),obtener_id_habitacion INT,estado_habitacion VARCHAR(10))
 BEGIN
-SELECT * FROM reserva WHERE id_reserva = cancelar_id_reserva;
 UPDATE reserva set estado = estado_reserva WHERE id_reserva = cancelar_id_reserva;
-SELECT * FROM habitacion WHERE habitacion_id = obtener_id_habitacion;
 UPDATE habitacion SET estado = estado_habitacion WHERE habitacion_id = obtener_id_habitacion;
 END//
 DELIMITER ;
