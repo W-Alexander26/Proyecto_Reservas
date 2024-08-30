@@ -52,3 +52,4 @@ CREATE TABLE Reserva (
     Foreign Key (habitacion_id) REFERENCES Habitacion(habitacion_id)
 );
 
+DROP DATABASE Proyecto_MySQL_Reservas;

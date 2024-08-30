@@ -14,12 +14,13 @@ ORDER BY total_reservas DESC LIMIT 1;
 SELECT h.nombre_hotel AS nombre_hotel, COUNT(ha.habitacion_id) AS habitaciones_disponibles
 FROM hotel h
 JOIN habitacion ha ON h.id_hotel = ha.id_hotel
-LEFT JOIN reserva r ON ha.habitacion_id = r.habitacion_id AND r.check_in_date = '2024-07-01'
+LEFT JOIN reserva r ON ha.habitacion_id = r.habitacion_id AND r.check_in_date = '2024-07-01 00:00:00'
 WHERE r.habitacion_id IS NULL
 GROUP BY h.nombre_hotel;
 ----------------------------------------------------------------------------------------------------------------------------------------
 --Consulta para buscar hoteles por nombre.
 SELECT * FROM Hotel WHERE nombre_hotel LIKE '%Fiesta%'
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 --Consulta para buscar hoteles cuya ubicación comienza con un texto específico.
 SELECT * FROM Hotel WHERE ubicacion LIKE 'Al%';
@@ -41,14 +42,14 @@ FROM
   hotel h
   JOIN (
     SELECT 
-      r.id_reserva,
+      r.id_hotel,
       DATE(r.check_in_date) AS fecha,
       COUNT(*) AS reservas_diarias
     FROM 
       reserva r
     GROUP BY 
-      r.id_reserva, DATE(r.check_in_date)
-  ) dr ON h.id_hotel = dr.id_reserva
+      r.id_hotel, DATE(r.check_in_date)
+  ) dr ON h.id_hotel = dr.id_hotel
 GROUP BY 
   h.nombre_hotel;
 --------------------------------------------------------------------------------------------------------------------------------------------

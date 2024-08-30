@@ -4,3 +4,5 @@ SELECT
     fecha_reserva
 FROM Reserva
 WHERE DATE(fecha_reserva) = CURDATE()
+
+SELECT * FROM reservas_del_dia;
