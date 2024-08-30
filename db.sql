@@ -51,5 +51,11 @@ CREATE TABLE Reserva (
     FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
     Foreign Key (habitacion_id) REFERENCES Habitacion(habitacion_id)
 );
+CREATE TABLE Administradores (
+        ID_admin INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(15) NOT NULL,
+        email VARCHAR(25) NOT NULL,
+        telefono VARCHAR(10),
+        contraseña VARCHAR(10) NOT NULL
+    );
 
-DROP DATABASE Proyecto_MySQL_Reservas
