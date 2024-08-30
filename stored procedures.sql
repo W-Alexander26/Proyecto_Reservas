@@ -14,8 +14,15 @@ BEGIN
 END// 
 
 DELIMITER ;
+<<<<<<< HEAD
 CALL agregar_nueva_reserva (7, 3, '2024-08-26 07:00:00','2024-08-28 12:00:00', 'Tarjeta', 1, '2024-08-02 17:00:00', 'confirmada');
 CALL agregar_nueva_reserva (9, 5, '2024-08-26 07:00:00','2024-08-28 12:00:00', 'Tarjeta', 6, '2024-08-02 17:00:00', 'confirmada');
+=======
+CALL agregar_nueva_reserva (5, 2, '2024-09-10 07:00:00','2024-09-16 12:00:00', 'Tarjeta', 1, '2024-08-30 10:00:00', 'confirmada');
+
+DROP PROCEDURE agregar_nueva_reserva
+
+>>>>>>> dev_gary
 #Creacion stored procedure que cancela las reservas.
 DELIMITER //
 
@@ -23,7 +30,12 @@ CREATE PROCEDURE `cancelar_reserva`(cancelar_id_reserva INT,estado_reserva VARCH
 BEGIN
 UPDATE reserva set estado = estado_reserva WHERE id_reserva = cancelar_id_reserva;
 UPDATE habitacion SET estado = estado_habitacion WHERE habitacion_id = obtener_id_habitacion;
-END//
+END
 DELIMITER ;
 
 CALL cancelar_reserva(8,"confirmada",2,"reservada");
+
+
+
+
+
