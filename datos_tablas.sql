@@ -39,3 +39,8 @@ VALUES
 (4,1,'2024-03-10 07:00:00','2024-03-15 12:00:00','Efectivo',4,'2024-03-05 13:00:00',"pendiente"),
 (5,3,'2024-04-10 12:00:00','2024-04-17 12:00:00','Tarjeta',5,'2024-04-06 06:00:00',"cancelado"),
 (6,4,'2024-06-01 12:00:00','2024-06-10 12:00:00','Efectivo',6,'2024-05-25 15:00:00',"confirmada");
+
+INSERT INTO administradores (nombre,email,telefono,contraseña)
+VALUES
+("Gary","gary@gmail.com","10203040","adminpass"),
+("Alex","alex@gmail.com","50607080","adminpass");

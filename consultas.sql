@@ -20,7 +20,6 @@ GROUP BY h.nombre_hotel;
 ----------------------------------------------------------------------------------------------------------------------------------------
 --Consulta para buscar hoteles por nombre.
 SELECT * FROM Hotel WHERE nombre_hotel LIKE '%Fiesta%'
-
 -----------------------------------------------------------------------------------------------------------------------------------------
 --Consulta para buscar hoteles cuya ubicación comienza con un texto específico.
 SELECT * FROM Hotel WHERE ubicacion LIKE 'Al%';
@@ -91,4 +90,3 @@ WHERE
   )
   AND ha.estado = 'disponible';
 ------------------------------------------------------------------------------------------------------------------------------------------------
-
