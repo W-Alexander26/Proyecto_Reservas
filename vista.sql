@@ -3,7 +3,9 @@ SELECT
     id_cliente,
     fecha_reserva
 FROM Reserva
-WHERE DATE(fecha_reserva) = CURDATE()
+WHERE DATE(fecha_reserva) = CURDATE();
+
+SELECT * FROM reservas_del_dia;
 
 CREATE VIEW reservas_recientes AS
 SELECT id_reserva, fecha_reserva
