@@ -14,7 +14,7 @@ BEGIN
 END// 
 
 DELIMITER ;
-CALL agregar_nueva_reserva (3, 3, '2024-08-27 07:00:00','2024-08-29 12:00:00', 'Tarjeta', 1, '2024-07-06 17:00:00', 'pendiente');
+CALL agregar_nueva_reserva (5, 2, '2024-09-10 07:00:00','2024-09-16 12:00:00', 'Tarjeta', 1, '2024-08-30 10:00:00', 'confirmada');
 
 DROP PROCEDURE agregar_nueva_reserva
 
@@ -27,9 +27,12 @@ SELECT * FROM reserva WHERE id_reserva = cancelar_id_reserva;
 UPDATE reserva set estado = estado_reserva WHERE id_reserva = cancelar_id_reserva;
 SELECT * FROM habitacion WHERE habitacion_id = obtener_id_habitacion;
 UPDATE habitacion SET estado = estado_habitacion WHERE habitacion_id = obtener_id_habitacion;
-END//
+END
 DELIMITER ;
 
 CALL cancelar_reserva(8,"confirmada",2,"reservada");
+
+
+
 
 
