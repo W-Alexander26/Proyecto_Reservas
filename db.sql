@@ -59,8 +59,3 @@ CREATE TABLE Administradores (
         contraseña VARCHAR(10) NOT NULL
     );
 
-DROP DATABASE Proyecto_MySQL_Reservas;
-<<<<<<< HEAD
-=======
-DROP TABLE Administradores;
->>>>>>> Developers
